@@ -1,116 +1,149 @@
-.Header{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 60px;
-    background-color: rgb(208, 241, 24);
-} 
-#logo{
-    width: 100px;
-    height: 100px;
-}
-#logo img{
-    width: 100%;
-}
 
-#name{
-    width: 75%;
-    display: flex;
-    align-items: center;
-    font-size: 80px;
-    font-weight: bold;
-}
+html, body {
+    background-color: rgb(196, 247, 247);
+    min-width: 600px;
+    font-family: monospace;
+    font-size: 1.5 em;
+  }
+  
+  
+  table {
+    border: 2px solid #000000;
+  }
 
-.Heading{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 40px;
-    font-weight: bolder;
-}
+  td {
+    border: 1px solid #000000;
+    text-align: center;
+    vertical-align: middle;  
+  }
 
-.sudoku_grid{
-    display: flex;
-    flex-direction: row;
-    max-width: 578px;
-    flex-wrap: wrap;
+  input {
+    color: rgba(26, 252, 5, 0.815);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 0;
+    border: 0;
+    text-align: center;
+    width: 48px;
+    height: 48px;
+    font-size: 24px !important;
+    background-color: whitesmoke;
+    outline: none;
+  }
 
-    margin: 10px auto ;
-}
+  right-ans{
+      color: chartreuse;
+  }
 
-.sudoku_grid div{
-    display:  flex;
-    align-items: center;
-    justify-content: center;
-    
-    width: 60px;
-    height: 60px;
-    color: rgb(0, 0, 0);
-    font-size: 40px;
-
-    box-sizing: border-box;
+  input:disabled {
+    color:black;
+    /* font-weight: bold; */
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.Buttons{   
-    display: flex;
-    justify-content: center;
-    width: 100%;    
-    margin-bottom: 40px;
-}
+  .row-2, .row-5 {border-bottom: 2px solid #000000;}
+  .row-3, .row-6 {border-top: 2px solid #000000;}
+  .col-2, .col-5 {border-right: 2px solid #000000;}
+  .col-3, .col-6 {border-left: 2px solid #000000;}
+  .col-0 {border-left: 2px solid #000000;}
+  .row-0 {border-top: 2px solid #000000;}
+  .col-8 {border-right: 2px solid #000000;}
+  .row-8 {border-bottom: 2px solid #000000;}
 
-#GetPuzzle,#SolvePuzzle{
-    display: inline-block;
-    text-decoration: none;
-    color: #020202;
-    font-weight: bold;
-    background-color: #81c5f3;
-    padding: 10px 35px;
-    font-size: 24px;
-    border: 1px solid #03f699;
-    box-shadow: inset 0px 1px 0px #ef0b0b;
-    margin-right: 10px;
-}
+  .background-gray{
+  /* background-color: hotpink; */
+    background-color: rgb(222, 236, 240) !important;
+  }
+  
+  .wrong-answer{
+    color: red;
+  }
+  .action-container{
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-rows: auto auto auto;
+  }
+  .actions{
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    max-width: 600px;
+  }
+  
+  .container{
+    display: grid;
+    grid-row: auto auto auto;
 
-.box1{
-    background-color: #06f3db;
-    border: 2px solid  rgb(0, 0, 0);
-}
+  }
 
-.box1:hover{
-    background-color: #f585c2;
+  .board-container{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer{
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 28px;
+   
+  }
+
+  .score, .submit{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5em;
+  }
+
+  button:hover{
+    cursor: pointer;
+    background-color: lightcyan;
+    border: 1px solid black;
+  }
+  button:disabled{
+    cursor: default;
+    background-color: lightcyan;
     color: black;
-}
+    font-size: 16px;
+    padding: 7px;
+    margin: 10px;
+    border: 1px solid black;
+    /* border: black; */
+  }
+  select, button{
+    font-size: 16px;
+    padding: 7px;
+    margin: 10px;
+    
+    background-color:  lightcyan ;
+    /* border: red; */
+    text-align: center;
+  }
 
-.box2{
-    background-color: #f3f92e;
-    border: 2px solid  rgb(0, 0, 0);
-}
-.box2:hover{
-    background-color: red;
-}
+  .pending{
+    cursor: wait;
+    pointer-events: none;
+  }
 
-.box3{
-    background-color: #028a0f;
-    border: 2px solid  rgb(0, 0, 0);
-}
-.box3:hover{
-    background-color: #f7a151;
-    color: black
-}
+  .levels, .newGame, .clearBoard{
+      /* background-color: red; */
+    margin: 0.5em;
+  }
 
-.bl{
-    border-left: 4px solid black;
-}
+  #overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: wait;
+  }
 
-.bb{
-    border-bottom: 4px solid black;
-}
-
-.br{
-    border-right: 4px solid black;
-}
-
-.bt{
-    border-top: 4px solid black;
-}
+  #timer{
+      font-size: 50px;
+  }
