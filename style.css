@@ -53,7 +53,9 @@ html, body {
   /* background-color: hotpink; */
     background-color: rgb(222, 236, 240) !important;
   }
-  
+  .levels {
+    display: none;
+  }
   .wrong-answer{
     color: red;
   }
